@@ -1,0 +1,11 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
+	<div class="box">
+		<ul>
+			<t:loop source="tenants" value="tenant">
+				<li>
+					<a href="${tenant.email}"></a>${tenant.phone}
+				</li>
+			</t:loop>
+		</ul>	
+	</div>
+</html>
