@@ -9,40 +9,51 @@ import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.ioc.annotations.Symbol;
 
+import com.privatesecuredata.eventplanner.pages.Login;
+import com.privatesecuredata.eventplanner.services.AuthenticationService;
+
 /**
  * Layout component for pages of application test-project.
  */
 @Import(module="bootstrap/collapse")
 public class Layout
 {
-  @Inject
-  private ComponentResources resources;
+	@Inject
+	private AuthenticationService authService;
+	
+	@Inject
+	private ComponentResources resources;
 
-  /**
-   * The page title, for the <title> element and the <h1> element.
-   */
-  @Property
-  @Parameter(required = true, defaultPrefix = BindingConstants.LITERAL)
-  private String title;
+	/**
+	 * The page title, for the <title> element and the <h1> element.
+	 */
+	@Property
+	@Parameter(required = true, defaultPrefix = BindingConstants.LITERAL)
+	private String title;
 
-  @Property
-  private String pageName;
+	@Property
+	private String pageName;
 
-  @Property
-  @Inject
-  @Symbol(SymbolConstants.APPLICATION_VERSION)
-  private String appVersion;
+	@Property
+	@Inject
+	@Symbol(SymbolConstants.APPLICATION_VERSION)
+	private String appVersion;
 
-  public String getClassForPageName()
-  {
-    return resources.getPageName().equalsIgnoreCase(pageName)
-        ? "active"
-        : null;
-  }
+	public String getClassForPageName()
+	{
+		return resources.getPageName().equalsIgnoreCase(pageName)
+				? "active"
+						: null;
+	}
 
-  public String[] getPageNames()
-  {
-    return new String[]{"Upcoming", "Rooms", "Tenants", "About", "Contact"};
-  }
+	public String[] getPageNames()
+	{
+		return new String[]{"Upcoming", "Rooms", "Tenants", "Contact"};
+	}
+
+	Class onLogout() {
+		authService.logout();
+		return Login.class;
+	}
 
 }

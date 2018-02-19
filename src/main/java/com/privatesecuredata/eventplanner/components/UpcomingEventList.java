@@ -1,11 +1,12 @@
 package com.privatesecuredata.eventplanner.components;
 
+import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 
 import org.apache.tapestry5.annotations.Component;
 import org.apache.tapestry5.annotations.InjectComponent;
 import org.apache.tapestry5.annotations.Log;
-import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.Zone;
 import org.apache.tapestry5.ioc.annotations.Inject;
@@ -13,11 +14,16 @@ import org.apache.tapestry5.services.Request;
 import org.apache.tapestry5.services.ajax.AjaxResponseRenderer;
 import org.slf4j.Logger;
 
-import com.privatesecuredata.eventplanner.entities.Tenant;
-import com.privatesecuredata.eventplanner.pages.Tenants;
+import com.privatesecuredata.eventplanner.entities.Event;
+import com.privatesecuredata.eventplanner.pages.Upcoming;
 import com.privatesecuredata.eventplanner.services.PersistanceService;
 
-public class TenantList {
+public class UpcomingEventList
+{
+	@Inject
+    @Property
+    private Locale currentLocale;
+	
 	@Inject
 	private Logger logger;
 
@@ -25,11 +31,7 @@ public class TenantList {
 	private PersistanceService persistance;
 	
 	@Property
-	private Tenant tenant;
-
-	@Persist
-	@Property 
-	private Boolean deleteSucceeded;
+	private Event event;
 	
 	@InjectComponent
     private Zone listzone;
@@ -40,26 +42,25 @@ public class TenantList {
 	@Inject
     private AjaxResponseRenderer ajaxResponseRenderer;
 	
-	public void setupRender() {
-		if (null == deleteSucceeded)
-			deleteSucceeded = true;
-		
-	}
+	@Component
+	private Zone listZone;
 	
-	public List<Tenant> getTenants() {
-		return persistance.loadTenants();
+	public List<Event> getUpcomingEvents() {
+		Calendar cal = Calendar.getInstance(currentLocale);
+		return persistance.loadEvents(cal.getTime());
 	}
 	
 	@Log
-	public Class onDel(Tenant t) {
-		deleteSucceeded = persistance.delete(t);
-		if (deleteSucceeded) logger.info("deleted tenant!");
+	public Class onDel(Event t) {
+		boolean deleteSucceeded = persistance.delete(t);
+		if (deleteSucceeded) logger.info("deleted event!");
 
 		if (deleteSucceeded && request.isXHR()) {
             ajaxResponseRenderer.addRender(listzone);
             return null;
         }
 		
-		return Tenants.class;
+		return Upcoming.class;
 	}
+
 }

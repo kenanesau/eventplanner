@@ -1,7 +1,15 @@
 <html t:type="layout" title="Contact com.privatesecuredata"
-      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd"
-      xmlns:p="tapestry:parameter">
-
-    <p>Contact com.privatesecuredata ...</p>
-
+	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd"
+	xmlns:p="tapestry:parameter">
+<div class="box">
+	<h2>Kontakt</h2>
+	<address>
+		<dl>
+			<dt>E-Mail Adresse</dt>
+			<dd>
+				<a href="mailto:kenan.esau@privatesecuredata.com">kenan.esau@privatesecuredata.com</a>
+			</dd>
+		</dl>
+	</address>
+</div>
 </html>

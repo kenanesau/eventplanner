@@ -36,7 +36,7 @@
             </ul>
             <span class="navbar-right">
                 <li>
-                    <t:pagelink page="login" class="btn btn-default navbar-btn">Sign in</t:pagelink>
+                    <t:EventLink event="logout" class="btn btn-default navbar-btn">Sign out</t:EventLink>
                	</li>
             </span>
 
@@ -59,7 +59,7 @@
     <hr />
 
     <footer>
-        <p>&copy; Your Company 2015</p>
+        <p>&copy; Kenan Esau 2018</p>
     </footer>
 
 </div> <!-- /container -->

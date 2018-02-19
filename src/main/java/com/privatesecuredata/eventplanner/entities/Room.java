@@ -6,6 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import org.apache.tapestry5.beaneditor.NonVisual;
+import org.apache.tapestry5.beaneditor.Validate;
 
 @Entity
 public class Room {
@@ -14,6 +15,7 @@ public class Room {
 	@NonVisual
 	public long id;
 	
+	@Validate("required")
 	private String name;
 
 	public String getName() {

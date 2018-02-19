@@ -2,9 +2,7 @@ package com.privatesecuredata.eventplanner.pages;
 
 import org.apache.tapestry5.annotations.Log;
 import org.apache.tapestry5.annotations.Property;
-import org.apache.tapestry5.hibernate.annotations.CommitAfter;
 import org.apache.tapestry5.ioc.annotations.Inject;
-import org.hibernate.Session;
 import org.slf4j.Logger;
 
 import com.privatesecuredata.eventplanner.entities.Tenant;
@@ -12,9 +10,6 @@ import com.privatesecuredata.eventplanner.services.PersistanceService;
 
 public class Tenants
 {
-	@Inject 
-	private Session session;
-	
 	@Inject
 	private Logger logger;
 

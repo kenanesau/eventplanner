@@ -1,0 +1,27 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd"
+	xmlns:p="tapestry:parameter">
+<t:zone t:id="listzone" elementname="div">
+	<t:grid source="upcomingEvents" row="event"
+		add="room,tenant,from,to,action" rowsPerPage="15" include="name"
+		pagerPosition="bottom" class="table table-bordered">
+		<p:roomCell>
+                ${event.room?.name}
+        </p:roomCell>
+		<p:tenantCell>
+                ${event.tenant?.name}
+        </p:tenantCell>
+		<p:fromCell>
+			<t:Output t:format="literal:dd.MM.yyyy kk:mm" t:value="event.start" />
+		</p:fromCell>
+		<p:toCell>
+			<t:Output t:format="literal:dd.MM.yyyy kk:mm" t:value="event.end" />
+		</p:toCell>
+		<p:actionCell>
+			<t:eventlink event="del" context="event" async="true">cancel</t:eventlink>
+		</p:actionCell>
+		<p:empty>
+			<p class="table table-bordered">No Events found... (yet)</p>
+		</p:empty>
+	</t:grid>
+</t:zone>
+</html>

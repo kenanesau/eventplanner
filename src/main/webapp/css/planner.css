@@ -13,6 +13,13 @@ h1 {
     line-height: 20px;
 }
 
+h2 {
+    font-size: 24px;
+    line-height: 20px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
 form {
     margin: 0;
 }
@@ -37,6 +44,12 @@ a {
     color: #3D69B6;
 }
 
+a .large {
+    text-decoration: none;
+    color: #3D69B6;
+	fonts-size: 22px;
+}
+
 a:hover {
     text-decoration: underline;
 }
@@ -48,3 +61,11 @@ a:hover {
     float: right;
 }
 
+.eg {
+     margin: 20px 0;
+     padding: 14px;
+     border: 1px solid #ddd;
+     border-radius: 6px;
+     -webkit-border-radius: 6px;
+     -mox-border-radius: 6px;
+}

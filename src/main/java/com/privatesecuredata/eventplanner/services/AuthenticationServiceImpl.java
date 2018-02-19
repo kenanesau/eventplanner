@@ -11,9 +11,14 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
 	@Override
 	public boolean authenticate(String username, String password) {
-		isAuthenticated = true; //(username.equals("kenan.esau@conan.de") &&
-							//password.equals("givemeajob"));
+		isAuthenticated = (username.equals("kenan.esau@conan.de") &&
+							password.equals("givemeajob"));
 
 		return isAuthenticated;
+	}
+	
+	public void logout() {
+		if (isAuthenticated)
+			isAuthenticated = false;
 	}
 }

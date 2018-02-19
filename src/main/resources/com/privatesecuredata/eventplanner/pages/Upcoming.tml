@@ -1,39 +1,7 @@
 <html t:type="layout" title="eventplanner Index"
       xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd"
         >
-
-    <!-- Most of the page content, including <head>, <body>, etc. tags, comes from Layout.tml -->
-
-    <!-- Main hero unit for a primary marketing message or call to action -->
-    <div class="hero-unit">
-        <p>The current time is: <strong>${currentTime}</strong></p>
-    </div>
-
-    <!-- Example row of columns -->
-    <div class="row">
-        <div class="span4">
-            <h2>Normal link</h2>
-            <p>Clink the bottom link and the page refresh with event <code>complete</code></p>
-            <p><t:eventlink event="complete" class="btn btn-default">Complete&raquo;</t:eventlink></p>
-        </div>
-        <t:zone t:id="middlezone" class="span4">
-
-        </t:zone>
-        <div class="span4">
-            <h2>Ajax link</h2>
-            <p>Click the bottom link to update just the middle column with Ajax call with event <code>ajax</code></p>
-            <p><t:eventlink event="ajax" zone="middlezone" class="btn btn-default">Ajax&raquo;</t:eventlink></p>
-        </div>
-    </div>
+    <div t:type="upcomingEventList"></div>
+    <div t:id="newEventForm" t:type="createEvent"></div>
     
-    <div t:type="tenantlist"></div>
-    
-    <t:beaneditform object="newTenant"></t:beaneditform>
-
-    <t:block t:id="block">
-        <h2>Ajax updated</h2>
-        <p>I'v been updated through AJAX call</p>
-        <p>The current time is: <strong>${currentTime}</strong></p>
-    </t:block>
-
 </html>

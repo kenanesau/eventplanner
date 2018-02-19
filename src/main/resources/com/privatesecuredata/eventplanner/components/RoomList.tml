@@ -1,17 +1,17 @@
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd"
 	xmlns:p="tapestry:parameter">
 <t:zone t:id="listzone" elementname="div">
-	<t:grid source="tenants" row="tenant" add="action" rowsPerPage="15"
+	<t:grid source="rooms" row="room" add="action" rowsPerPage="15"
 		pagerPosition="bottom" class="table table-bordered">
 		<p:actionCell>
-			<t:eventlink event="del" context="tenant" async="true" class="large">-</t:eventlink>
+			<t:eventlink event="del" context="room" async="true" class="large">-</t:eventlink>
 		</p:actionCell>
 		<p:empty>
-			<p class="table table-bordered">No Tenants found...</p>
+			<p class="table table-bordered">No Rooms found...</p>
 		</p:empty>
 	</t:grid>
 	<t:if test="!deleteSucceeded">
-		<div class="box" style="border-color: red;">Deleting Tenant failed. Maybe he is still in use?</div>
+		<div class="box" style="border-color: red;">Deleting Room failed. Maybe it is still in use?</div>
 	</t:if>
 </t:zone>
 </html>

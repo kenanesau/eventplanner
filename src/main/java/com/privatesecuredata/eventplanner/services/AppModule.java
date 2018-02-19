@@ -67,7 +67,7 @@ public class AppModule
     
     /** Add Filter for Security / Login **/
     public void contributeComponentRequestHandler(OrderedConfiguration<ComponentRequestFilter> configuration) {
-        //configuration.addInstance("PageProtectionFilter", PageAuthenticationFilter.class);
+        configuration.addInstance("PageProtectionFilter", PageAuthenticationFilter.class);
     }
     
 	/**

@@ -15,13 +15,13 @@ public class Tenant {
 	@NonVisual
 	public long id;
 
-//	@Validate("required")
+	@Validate("required")
 	private String name;
 	
-//	@Validate("required, regexp")
+	@Validate("required")
 	private String email;
 	
-//	@Validate("required, regexp")
+	@Validate("required")
 	private String phone;
 	
 	public String getName() {
