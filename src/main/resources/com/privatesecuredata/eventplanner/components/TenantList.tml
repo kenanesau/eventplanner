@@ -1,11 +1,13 @@
-<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd">
-	<div class="box">
-		<ul>
-			<t:loop source="tenants" value="tenant">
-				<li>
-					<a href="${tenant.email}"></a>${tenant.phone}
-				</li>
-			</t:loop>
-		</ul>	
-	</div>
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_4.xsd" xmlns:p="tapestry:parameter">
+<t:zone t:id="listzone" elementname="div">
+	<t:grid source="tenants" row="tenant" add="action" rowsPerPage="15"
+		pagerPosition="bottom" class="table table-bordered">
+		<p:actionCell>
+			<t:eventlink event="del" context="tenant" async="true">-</t:eventlink>
+		</p:actionCell>
+		<p:empty>
+			<p>No Tenants found...</p>
+		</p:empty>
+	</t:grid>
+</t:zone>
 </html>

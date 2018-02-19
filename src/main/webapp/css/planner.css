@@ -17,6 +17,11 @@ form {
     margin: 0;
 }
 
+.planner-table tr td 
+{
+	padding-right: 12px;
+}
+
 .box {
     margin: 20px 0;
     padding: 20px;

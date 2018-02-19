@@ -6,18 +6,7 @@
 
     <!-- Main hero unit for a primary marketing message or call to action -->
     <div class="hero-unit">
-        <p>
-            <img src="${asset:context:images/tapestry.png}"
-                 alt="${message:greeting}" title="${message:greeting}"/>
-        </p>
-        <h3>${message:greeting}</h3>
         <p>The current time is: <strong>${currentTime}</strong></p>
-        <p>
-            This is a template for a simple marketing or informational website. It includes a large callout called
-            the hero unit and three supporting pieces of content. Use it as a starting point to create something
-            more unique.
-        </p>
-        <p><t:actionlink t:id="learnmore" class="btn btn-primary btn-large">Learn more &raquo;</t:actionlink></p>
     </div>
 
     <!-- Example row of columns -->

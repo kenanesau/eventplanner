@@ -54,14 +54,6 @@ public class Upcoming
         null;
   }
 
-
-  Object onActionFromLearnMore()
-  {
-    about.setLearn("LearnMore");
-
-    return about;
-  }
-
   @Log
   void onComplete()
   {

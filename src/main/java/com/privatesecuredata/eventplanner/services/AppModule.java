@@ -16,6 +16,8 @@ import org.apache.tapestry5.services.javascript.StackExtension;
 import org.apache.tapestry5.services.javascript.StackExtensionType;
 import org.slf4j.Logger;
 
+import com.privatesecuredata.eventplanner.entities.Tenant;
+
 /**
  * This module is automatically included as part of the Tapestry IoC Registry, it's a good place to
  * configure and extend Tapestry, or to place your own service definitions.
@@ -63,10 +65,11 @@ public class AppModule
         configuration.add(SymbolConstants.HMAC_PASSPHRASE, "change this immediately");
     }
     
+    /** Add Filter for Security / Login **/
     public void contributeComponentRequestHandler(OrderedConfiguration<ComponentRequestFilter> configuration) {
-        configuration.addInstance("PageProtectionFilter", PageAuthenticationFilter.class);
+        //configuration.addInstance("PageProtectionFilter", PageAuthenticationFilter.class);
     }
-
+    
 	/**
 	 * Use annotation or method naming convention: <code>contributeApplicationDefaults</code>
 	 */
